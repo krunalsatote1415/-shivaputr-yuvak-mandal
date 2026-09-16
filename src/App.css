@@ -1,0 +1,85 @@
+﻿/* Sacred Animations & Spiritual Aesthetics for Shivaputr Yuvak Mandal */
+@keyframes bellSwing {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(18deg); }
+  40% { transform: rotate(-16deg); }
+  60% { transform: rotate(12deg); }
+  80% { transform: rotate(-8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-bell-ring {
+  transform-origin: top center;
+  animation: bellSwing 0.8s ease-in-out;
+}
+
+@keyframes flameFlicker {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 0.95; filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.8)); }
+  50% { transform: scale(1.1) translateY(-2px); opacity: 1; filter: drop-shadow(0 0 18px rgba(239, 68, 68, 0.9)); }
+}
+
+.animate-flame {
+  animation: flameFlicker 1.2s infinite ease-in-out;
+}
+
+@keyframes floatFlower {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(340px) rotate(360deg); opacity: 0; }
+}
+
+.animate-flower-drop {
+  animation: floatFlower 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes thaliSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-thali-rotate {
+  animation: thaliSpin 8s linear infinite;
+}
+
+@keyframes divineGlowPulse {
+  0%, 100% { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.4)); }
+  50% { filter: drop-shadow(0 0 35px rgba(239, 68, 68, 0.8)); }
+}
+
+.divine-glow {
+  animation: divineGlowPulse 3s ease-in-out infinite;
+}
+
+/* Custom devotional scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fffbeb;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Print Styles for VIP Pass & Daan Pavati */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-card, .printable-card * {
+    visibility: visible;
+  }
+  .printable-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none !important;
+  }
+}
