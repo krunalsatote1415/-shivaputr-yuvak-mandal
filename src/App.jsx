@@ -640,9 +640,16 @@ function App() {
   }
 
   const handleOfferFlowers = () => {
+    // 1. Smoothly scroll up to Bappa's divine murti in Virtual Mandir
+    const murtiElem = document.getElementById('bappa-murti-box') || document.getElementById('virtual-mandir')
+    if (murtiElem) {
+      murtiElem.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+
+    // 2. Play temple chime & activate divine shower across phone screen
     setFlowerShowerActive(true)
     playPoojaChime()
-    setTimeout(() => setFlowerShowerActive(false), 3000)
+    setTimeout(() => setFlowerShowerActive(false), 4500)
   }
 
   const handleOfferModak = () => {
@@ -1617,21 +1624,40 @@ function App() {
 
       {/* --- FLOWER SHOWER PARTICLES OVERLAY --- */}
       {flowerShowerActive && (
-        <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
-          {[...Array(24)].map((_, i) => (
-            <div 
-              key={i} 
-              className="absolute text-2xl md:text-3xl animate-flower-drop"
-              style={{
-                left: `${Math.random() * 95}%`,
-                top: `${Math.random() * -10}%`,
-                animationDelay: `${Math.random() * 1.5}s`,
-                animationDuration: `${2 + Math.random() * 2}s`
-              }}
-            >
-              {i % 3 === 0 ? '🌺' : i % 3 === 1 ? '🌼' : '🌸'}
-            </div>
-          ))}
+        <div className="fixed inset-0 pointer-events-none z-[90] overflow-hidden">
+          {/* Sacred Devotional Banner */}
+          <div className="absolute top-16 sm:top-20 inset-x-0 text-center animate-bounce z-10 pointer-events-none px-4">
+            <span className="bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-stone-950 text-xs sm:text-sm font-black px-4 py-1.5 rounded-full shadow-2xl border-2 border-amber-300 uppercase tracking-wider inline-flex items-center gap-1.5">
+              <span>🌺</span>
+              <span>॥ श्री बाप्पा चरणी पुष्प वर्षा ॥</span>
+              <span>🌺</span>
+            </span>
+          </div>
+
+          {[...Array(42)].map((_, i) => {
+            const flowers = ['🌺', '🌼', '🌸', '🌹', '🪷', '🏵️', '💐', '🌻'];
+            const flower = flowers[i % flowers.length];
+            const left = (i * 2.4 + (i % 7) * 3) % 95;
+            const delay = (i * 0.08) % 2.4;
+            const duration = 2.6 + (i % 4) * 0.3;
+            const size = 24 + (i % 4) * 6; // 24px to 42px
+            return (
+              <div 
+                key={i} 
+                className="absolute animate-flower-drop"
+                style={{
+                  left: `${left}%`,
+                  top: '-45px',
+                  fontSize: `${size}px`,
+                  animationDelay: `${delay}s`,
+                  animationDuration: `${duration}s`,
+                  filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.5))'
+                }}
+              >
+                {flower}
+              </div>
+            );
+          })}
         </div>
       )}
 
@@ -2310,7 +2336,7 @@ function App() {
             <div className="lg:col-span-7 bg-[#1a1613] rounded-3xl shadow-2xl p-6 md:p-8 border-2 border-amber-500/40 relative overflow-hidden text-white">
               
               {/* Sacred Arch & Idol Box */}
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-stone-950 to-stone-900 border-4 border-amber-500/70 shadow-2xl">
+              <div id="bappa-murti-box" className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-stone-950 to-stone-900 border-4 border-amber-500/70 shadow-2xl scroll-mt-24">
                 
                 {/* Golden Toran Garland */}
                 <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 py-1 text-center text-xs font-black text-stone-950 shadow z-20">
@@ -2351,16 +2377,18 @@ function App() {
                     <span className="text-2xl block">🔔</span>
                   </div>
 
-                  {/* Diya in Corner */}
-                  <div className="absolute bottom-4 left-4 bg-stone-950/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-500/50 flex items-center gap-2 text-amber-300 text-xs font-bold shadow-lg">
-                    <span className="text-xl animate-flame">🪔</span>
-                    <span>Diya Jyot Akhand</span>
-                  </div>
+                  {/* Sacred Bottom Status Bar (Non-Overlapping & Responsive) */}
+                  <div className="absolute bottom-2 inset-x-2 sm:bottom-3 sm:inset-x-3 flex items-center justify-between gap-1.5 z-20 pointer-events-none">
+                    <div className="bg-stone-950/85 backdrop-blur-md px-2 sm:px-3 py-1 rounded-xl border border-amber-500/50 flex items-center gap-1 sm:gap-1.5 text-amber-300 text-[10px] sm:text-xs font-bold shadow-lg pointer-events-auto shrink-0">
+                      <span className="text-sm sm:text-lg animate-flame">🪔</span>
+                      <span className="truncate max-w-[85px] xs:max-w-none">Akhand Jyot</span>
+                    </div>
 
-                  {/* Modak Count in Corner */}
-                  <div className="absolute bottom-4 right-4 bg-stone-950/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-500/50 flex items-center gap-2 text-amber-300 text-xs font-bold shadow-lg">
-                    <span className="text-xl">🥟</span>
-                    <span>{modakCount} Modak Bhog</span>
+                    <div className="bg-stone-950/85 backdrop-blur-md px-2 sm:px-3 py-1 rounded-xl border border-amber-500/50 flex items-center gap-1 sm:gap-1.5 text-amber-300 text-[10px] sm:text-xs font-bold shadow-lg pointer-events-auto shrink-0">
+                      <span className="text-sm sm:text-lg">🥟</span>
+                      <span className="font-mono font-black">{modakCount}</span>
+                      <span className="truncate max-w-[85px] xs:max-w-none">Modak Bhog</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4817,17 +4845,17 @@ function App() {
       )}
 
       {/* --- FLOATING DEVOTIONAL SPEED DIAL --- */}
-      <div className="fixed bottom-4 right-4 z-40 flex flex-col gap-2">
+      <div className="fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-40 flex flex-col gap-1.5 sm:gap-2">
         <button 
           onClick={playTempleBell}
-          className={`w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-stone-950 shadow-2xl flex items-center justify-center text-xl transition-all duration-200 border-2 border-amber-300 hover:scale-110 shadow-amber-500/30 ${bellRinging ? 'animate-bell-ring' : ''}`}
+          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-stone-950 shadow-2xl flex items-center justify-center text-base sm:text-xl transition-all duration-200 border-2 border-amber-300 hover:scale-110 shadow-amber-500/40 active:scale-95 ${bellRinging ? 'animate-bell-ring' : ''}`}
           title="Ring Temple Bell"
         >
           🔔
         </button>
         <a 
           href="#virtual-mandir"
-          className="w-12 h-12 rounded-full bg-gradient-to-tr from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-2xl flex items-center justify-center text-xl transition-all duration-200 border-2 border-amber-400 hover:scale-110 shadow-red-900/40"
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-2xl flex items-center justify-center text-base sm:text-xl transition-all duration-200 border-2 border-amber-400 hover:scale-110 shadow-red-900/50 active:scale-95"
           title="Virtual Pooja & Darshan"
         >
           🪔
