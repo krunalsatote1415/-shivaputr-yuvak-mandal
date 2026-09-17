@@ -1448,7 +1448,7 @@ function App() {
   // ========================================================
   if (!loggedInUser) {
     return (
-      <div className="bg-[#0a0806] text-stone-100 font-sans min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-stone-950 relative overflow-hidden">
+      <div className="bg-[#0a0806] text-stone-100 font-sans min-h-screen w-full max-w-full overflow-x-hidden flex flex-col justify-between selection:bg-amber-500 selection:text-stone-950 relative">
         
         {/* Background Divine Wallpaper with Atmospheric Dark Vignette */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -1613,7 +1613,7 @@ function App() {
   // ROUTE: PUBLIC DEVOTEE PORTAL (SHOWN ONLY AFTER LOGIN)
   // ========================================================
   return (
-    <div className="bg-[#0d0b09] text-stone-100 font-sans min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-stone-950">
+    <div className="bg-[#0d0b09] text-stone-100 font-sans min-h-screen w-full max-w-full overflow-x-hidden flex flex-col justify-between selection:bg-amber-500 selection:text-stone-950">
 
       {/* --- FLOWER SHOWER PARTICLES OVERLAY --- */}
       {flowerShowerActive && (
@@ -1636,19 +1636,20 @@ function App() {
       )}
 
       {/* --- SLEEK SPIRITUAL TOP TICKER --- */}
-      <div className="bg-stone-950 text-amber-200/90 text-xs py-1.5 px-4 border-b border-amber-500/20">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 overflow-hidden text-[11px]">
-            <span className="text-amber-400 font-bold">📢</span>
+      <div className="bg-stone-950 text-amber-200/90 text-xs py-1.5 px-2.5 sm:px-4 border-b border-amber-500/20 w-full overflow-hidden">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-1.5 overflow-hidden text-[10px] sm:text-[11px] min-w-0 flex-1">
+            <span className="text-amber-400 font-bold shrink-0">📢</span>
             <span className="truncate">{liveAnnouncement}</span>
           </div>
-          <div className="flex items-center gap-3 text-[11px] flex-shrink-0 font-medium">
+          <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] shrink-0 font-medium">
             <button 
               onClick={() => setIsMuted(!isMuted)} 
               className="text-amber-300 hover:text-white transition flex items-center gap-1"
               title="Toggle Temple Bell & Aarti Sound"
             >
-              <span>{isMuted ? '🔇 Mute' : '🔔 Sound'}</span>
+              <span>{isMuted ? '🔇' : '🔔'}</span>
+              <span className="hidden sm:inline">{isMuted ? 'Mute' : 'Sound'}</span>
             </button>
             <span className="text-stone-700">•</span>
             <button 
@@ -1656,21 +1657,22 @@ function App() {
               className="text-amber-400 hover:text-amber-300 font-bold transition flex items-center gap-1"
               title="Mandal Committee Admin Dashboard"
             >
-              <span>⚙️ Admin</span>
+              <span>⚙️</span>
+              <span className="hidden sm:inline">Admin</span>
             </button>
           </div>
         </div>
       </div>
 
       {/* --- MASTER CLEAN & ELEGANT NAVBAR (ROYAL TEMPLE DARK & GOLD) --- */}
-      <header className="bg-[#120f0d]/95 backdrop-blur-md sticky top-0 z-40 border-b border-amber-500/25 shadow-xl transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-4">
+      <header className="bg-[#120f0d]/95 backdrop-blur-md sticky top-0 z-40 border-b border-amber-500/25 shadow-xl transition-all w-full max-w-full overflow-x-hidden">
+        <div className="max-w-7xl mx-auto px-2.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-4">
           
           {/* 1. Left: Brand Identity (Prominent, High-Res Golden Emblem) */}
-          <a href="#home" className="flex items-center gap-3 sm:gap-3.5 group focus:outline-none shrink-0">
+          <a href="#home" className="flex items-center gap-2 sm:gap-3.5 group focus:outline-none min-w-0 flex-1 sm:flex-initial">
             {/* Majestic Golden Halo Ring around Logo */}
-            <div className="relative p-[2px] rounded-full bg-gradient-to-tr from-amber-500 via-yellow-300 to-amber-600 shadow-lg shadow-amber-500/25 group-hover:shadow-amber-400/50 group-hover:scale-105 transition-all duration-300 flex-shrink-0">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-black flex items-center justify-center border border-black shadow-inner">
+            <div className="relative p-[1.5px] rounded-full bg-gradient-to-tr from-amber-500 via-yellow-300 to-amber-600 shadow-md flex-shrink-0">
+              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-black flex items-center justify-center border border-black shadow-inner">
                 <img 
                   src={ganpatiLogo} 
                   alt="Shivaputr Yuvak Mandal Logo" 
@@ -1678,16 +1680,16 @@ function App() {
                 />
               </div>
               {/* Saffron Sacred Dot Accent */}
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-amber-400 border-2 border-[#120f0d] shadow-xs" title="Official Mandal Logo"></span>
+              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-400 border-2 border-[#120f0d] shadow-xs" title="Official Mandal Logo"></span>
             </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <h1 className="text-base sm:text-lg lg:text-xl font-black text-white tracking-tight leading-none group-hover:text-amber-300 transition">
-                  Shivaputr Yuvak Mandal
+            <div className="min-w-0">
+              <div className="flex items-center gap-1">
+                <h1 className="text-sm sm:text-lg lg:text-xl font-black text-white tracking-tight leading-none group-hover:text-amber-300 transition truncate">
+                  Shivaputr Mandal
                 </h1>
               </div>
-              <p className="text-[10px] sm:text-xs text-amber-400 font-extrabold tracking-wider uppercase mt-1 flex items-center gap-1">
-                <span>🚩</span> <span>Sarvajanik Ganeshotsav • २०२६</span>
+              <p className="text-[9px] sm:text-xs text-amber-400 font-extrabold tracking-wider uppercase mt-0.5 sm:mt-1 flex items-center gap-1 truncate">
+                <span>🚩</span> <span className="truncate">Ganeshotsav २०२६</span>
               </p>
             </div>
           </a>
@@ -1716,21 +1718,21 @@ function App() {
           </nav>
 
           {/* 3. Right: Clean Consolidated Action Group */}
-          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             
             {/* Quick Temple Bell Chime */}
             <button 
               onClick={playTempleBell}
-              className={`w-8 h-8 rounded-full border border-stone-800 bg-stone-900/90 hover:bg-amber-950/40 text-amber-400 hover:text-amber-300 transition shadow-xs flex items-center justify-center ${bellRinging ? 'animate-bell-ring' : ''}`}
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-stone-800 bg-stone-900/90 hover:bg-amber-950/40 text-amber-400 hover:text-amber-300 transition shadow-xs flex items-center justify-center ${bellRinging ? 'animate-bell-ring' : ''}`}
               title="Ring Temple Bell"
             >
-              <span className="text-sm leading-none">🔔</span>
+              <span className="text-xs sm:text-sm leading-none">🔔</span>
             </button>
 
-            {/* Hero CTA: Bappa Seva Button */}
+            {/* Hero CTA: Bappa Seva Button (Desktop & Tablet) */}
             <a 
               href="#donate" 
-              className="bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-stone-950 font-black text-xs px-3.5 sm:px-4 py-2 rounded-full shadow-md hover:shadow-amber-500/25 transition-all duration-200 flex items-center gap-1.5 active:scale-95 border border-amber-300/50 hover:scale-105"
+              className="hidden sm:flex bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-stone-950 font-black text-xs px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md hover:shadow-amber-500/25 transition-all duration-200 items-center gap-1.5 active:scale-95 border border-amber-300/50 hover:scale-105"
               title="बाप्पा सेवा व पावती (Bappa Seva)"
             >
               <span className="text-sm leading-none">🙏</span>
@@ -1743,23 +1745,23 @@ function App() {
               <div className="relative">
                 <button 
                   onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
-                  className="flex items-center gap-2 bg-stone-900/90 hover:bg-stone-800 border border-stone-800 hover:border-amber-500/50 pl-1.5 pr-2.5 py-1 rounded-full shadow-xs transition group text-left"
+                  className="flex items-center gap-1 sm:gap-2 bg-stone-900/90 hover:bg-stone-800 border border-stone-800 hover:border-amber-500/50 pl-1 pr-1.5 sm:pl-1.5 sm:pr-2.5 py-1 rounded-full shadow-xs transition group text-left"
                   title="Profile & Menu"
                 >
-                  <div className="relative">
+                  <div className="relative shrink-0">
                     {userAvatar ? (
-                      <img src={userAvatar} alt={loggedInUser} className="w-6 h-6 rounded-full object-cover border border-amber-500 shadow-xs" />
+                      <img src={userAvatar} alt={loggedInUser} className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover border border-amber-500 shadow-xs" />
                     ) : (
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-stone-950 flex items-center justify-center text-[10px] font-black shadow-xs">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-stone-950 flex items-center justify-center text-[9px] sm:text-[10px] font-black shadow-xs">
                         {loggedInUser.charAt(0).toUpperCase()}
                       </div>
                     )}
-                    <span className="absolute -bottom-0.5 -right-0.5 bg-emerald-500 w-2 h-2 rounded-full border border-stone-900"></span>
+                    <span className="absolute -bottom-0.5 -right-0.5 bg-emerald-500 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full border border-stone-900"></span>
                   </div>
-                  <span className="text-xs font-bold text-stone-200 group-hover:text-amber-300 transition max-w-[85px] sm:max-w-[110px] truncate">
+                  <span className="text-[11px] sm:text-xs font-bold text-stone-200 group-hover:text-amber-300 transition max-w-[45px] xs:max-w-[75px] sm:max-w-[110px] truncate">
                     {loggedInUser.split(' ')[0]}
                   </span>
-                  <span className="text-[10px] text-stone-400 group-hover:text-stone-300 transition">
+                  <span className="text-[9px] text-stone-400 group-hover:text-stone-300 transition">
                     ▾
                   </span>
                 </button>
@@ -1822,7 +1824,7 @@ function App() {
                 {/* Primary Sign In Button */}
                 <button 
                   onClick={() => { setAuthMode('login'); setShowAuthModal(true); }}
-                  className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 text-xs font-bold px-3.5 py-2 rounded-full transition shadow-xs flex items-center gap-1.5 active:scale-95"
+                  className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 text-xs font-bold px-3 py-1.5 rounded-full transition shadow-xs flex items-center gap-1 active:scale-95"
                 >
                   <span>Sign In</span>
                 </button>
@@ -1833,10 +1835,10 @@ function App() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden w-8 h-8 rounded-full border border-stone-800 bg-stone-900 hover:bg-stone-800 flex items-center justify-center text-amber-400 transition"
+              className="lg:hidden w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-stone-800 bg-stone-900 hover:bg-stone-800 flex items-center justify-center text-amber-400 transition"
               title="Toggle Menu"
             >
-              <span className="text-base font-bold leading-none">
+              <span className="text-sm sm:text-base font-bold leading-none">
                 {isMobileMenuOpen ? '✕' : '☰'}
               </span>
             </button>
@@ -1847,6 +1849,16 @@ function App() {
         {/* 4. Mobile Slide-Down Menu Drawer */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-[#14110f] border-t border-amber-500/25 px-4 py-3 space-y-2 animate-fade-in shadow-xl">
+            {/* Mobile Bappa Seva CTA Banner */}
+            <a
+              href="#donate"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-stone-950 font-black text-xs px-4 py-2.5 rounded-xl shadow-md flex items-center justify-center gap-2 mb-2 transition active:scale-95"
+            >
+              <span>🙏</span>
+              <span>बाप्पा सेवा व पावती (Donate & E-Receipt)</span>
+            </a>
+
             <nav className="flex flex-col space-y-1 font-semibold text-stone-300 text-xs">
               <a 
                 href="#home" 
@@ -2146,7 +2158,7 @@ function App() {
 
       {/* --- HERO SECTION: DIVINE, SPACIOUS & ELEGANT --- */}
       {/* --- HERO SECTION: DIVINE, SPACIOUS & BAPPA IMAGE PROMINENT --- */}
-      <section id="home" className="relative text-white py-14 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden bg-stone-950 flex items-center min-h-[75vh] md:min-h-[85vh]">
+      <section id="home" className="relative text-white py-10 sm:py-20 md:py-24 px-3 sm:px-6 overflow-hidden bg-stone-950 flex items-center min-h-[70vh] md:min-h-[85vh] w-full max-w-full">
         
         {/* Background Divine Wallpaper - Bright, Clear & Glorious */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -2166,32 +2178,32 @@ function App() {
         <div className="max-w-7xl mx-auto relative z-10 w-full">
           
           {/* Content Container: Seamless typography floating over the wallpaper, ZERO box borders or artificial blur */}
-          <div className="max-w-md lg:max-w-lg text-left space-y-4">
+          <div className="max-w-md lg:max-w-lg text-left space-y-3 sm:space-y-4">
             
             {/* Vedic Inscription & Festival Pill */}
-            <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-[11px] font-black uppercase tracking-wider shadow-sm backdrop-blur-xs">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <div className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm backdrop-blur-xs">
                 <span>🕉️</span>
                 <span>॥ श्री गणेशाय नमः ॥</span>
               </div>
-              <span className="text-[11px] font-bold text-amber-400/90 tracking-wide drop-shadow-md">
+              <span className="text-[10px] sm:text-[11px] font-bold text-amber-400/90 tracking-wide drop-shadow-md">
                 राजा शिवपुत्रचा २०२६
               </span>
             </div>
 
             {/* Upcoming Aarti Floating Capsule */}
-            <div className="inline-flex flex-wrap items-center gap-2 bg-stone-950/80 border border-amber-500/40 px-3.5 py-1.5 rounded-2xl text-xs text-stone-200 shadow-lg backdrop-blur-xs">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-              <span className="font-extrabold text-white text-[11px]">Agali Aarti:</span>
-              <span className="text-stone-200 text-[11px] font-medium">{nextAarti.name}</span>
-              <span className="text-amber-300 font-mono font-black bg-amber-950/90 px-2 py-0.5 rounded-md border border-amber-500/40 text-[11px]">
+            <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 bg-stone-950/80 border border-amber-500/40 px-2.5 sm:px-3.5 py-1.5 rounded-2xl text-xs text-stone-200 shadow-lg backdrop-blur-xs max-w-full">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping shrink-0"></span>
+              <span className="font-extrabold text-white text-[10px] sm:text-[11px]">Agali Aarti:</span>
+              <span className="text-stone-200 text-[10px] sm:text-[11px] font-medium truncate max-w-[120px] sm:max-w-none">{nextAarti.name}</span>
+              <span className="text-amber-300 font-mono font-black bg-amber-950/90 px-1.5 sm:px-2 py-0.5 rounded-md border border-amber-500/40 text-[10px] sm:text-[11px] shrink-0">
                 ⏳ {nextAarti.countdown}
               </span>
             </div>
 
             {/* Majestic Royal Heading */}
             <div className="space-y-1">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
                 <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
                   Shivaputr Yuvak
                 </span>
@@ -2200,7 +2212,7 @@ function App() {
                   Mandal
                 </span>
               </h1>
-              <p className="text-xs sm:text-sm font-black text-amber-300 tracking-wide pt-1 drop-shadow-md">
+              <p className="text-[11px] sm:text-sm font-black text-amber-300 tracking-wide pt-1 drop-shadow-md">
                 ॥ ६ वे वर्ष महोत्सव • Sarvajanik Ganeshotsav ॥
               </p>
             </div>
@@ -2211,10 +2223,10 @@ function App() {
             </p>
 
             {/* Clean, Focused Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1 sm:pt-2">
               <a 
                 href="#virtual-mandir" 
-                className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-stone-950 font-black px-5 sm:px-6 py-3 rounded-2xl shadow-xl shadow-amber-500/25 transition-all duration-200 flex items-center gap-2 active:scale-95 text-xs sm:text-sm border border-amber-300/60 hover:scale-105"
+                className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-stone-950 font-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-xl shadow-amber-500/25 transition-all duration-200 flex items-center gap-1.5 sm:gap-2 active:scale-95 text-xs sm:text-sm border border-amber-300/60 hover:scale-105"
               >
                 <span>🪔</span>
                 <span>Online Darshan</span>
@@ -2222,7 +2234,7 @@ function App() {
 
               <a 
                 href="#booking" 
-                className="bg-stone-900/90 hover:bg-stone-800 text-white font-bold px-4 sm:px-5 py-3 rounded-2xl border border-amber-500/40 hover:border-amber-400 transition-all duration-200 flex items-center gap-2 active:scale-95 text-xs sm:text-sm shadow-md backdrop-blur-xs hover:scale-105"
+                className="bg-stone-900/90 hover:bg-stone-800 text-white font-bold px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-amber-500/40 hover:border-amber-400 transition-all duration-200 flex items-center gap-1.5 sm:gap-2 active:scale-95 text-xs sm:text-sm shadow-md backdrop-blur-xs hover:scale-105"
               >
                 <span>🎫</span>
                 <span>VIP Pass</span>
@@ -2230,7 +2242,7 @@ function App() {
 
               <a 
                 href="#donate" 
-                className="bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white font-bold px-4 sm:px-5 py-3 rounded-2xl shadow-xl shadow-red-900/30 transition-all duration-200 flex items-center gap-2 active:scale-95 text-xs sm:text-sm border border-red-400/40 hover:scale-105"
+                className="bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white font-bold px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-2xl shadow-xl shadow-red-900/30 transition-all duration-200 flex items-center gap-1.5 sm:gap-2 active:scale-95 text-xs sm:text-sm border border-red-400/40 hover:scale-105"
               >
                 <span>🙏</span>
                 <span>बाप्पा सेवा</span>
@@ -2243,34 +2255,34 @@ function App() {
       </section>
 
       {/* --- DEVOTEE SEVA & IMPACT STRIP (MOVED BELOW HERO FOR ZERO CLUTTER) --- */}
-      <div className="bg-stone-900 border-y border-amber-500/20 py-4 sm:py-5 px-4 shadow-xl relative z-20">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          <div className="bg-stone-950/70 border border-amber-500/30 p-3 sm:p-4 rounded-2xl flex items-center gap-3 sm:gap-3.5 shadow-sm">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl flex-shrink-0">🪔</div>
-            <div>
-              <p className="text-lg sm:text-2xl font-black text-amber-400 font-mono leading-none">{diyaCount.toLocaleString()}+</p>
-              <p className="text-[10px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1">Diyas Lit Today</p>
+      <div className="bg-stone-900 border-y border-amber-500/20 py-3 sm:py-5 px-2.5 sm:px-4 shadow-xl relative z-20 w-full overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+          <div className="bg-stone-950/70 border border-amber-500/30 p-2.5 sm:p-4 rounded-2xl flex items-center gap-2 sm:gap-3.5 shadow-sm min-w-0">
+            <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-base sm:text-xl shrink-0">🪔</div>
+            <div className="min-w-0">
+              <p className="text-base sm:text-2xl font-black text-amber-400 font-mono leading-none truncate">{diyaCount.toLocaleString()}+</p>
+              <p className="text-[9px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1 truncate">Diyas Lit Today</p>
             </div>
           </div>
-          <div className="bg-stone-950/70 border border-amber-500/30 p-3 sm:p-4 rounded-2xl flex items-center gap-3 sm:gap-3.5 shadow-sm">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl flex-shrink-0">🟡</div>
-            <div>
-              <p className="text-lg sm:text-2xl font-black text-amber-400 font-mono leading-none">{modakCount.toLocaleString()}+</p>
-              <p className="text-[10px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1">Modaks Offered</p>
+          <div className="bg-stone-950/70 border border-amber-500/30 p-2.5 sm:p-4 rounded-2xl flex items-center gap-2 sm:gap-3.5 shadow-sm min-w-0">
+            <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-base sm:text-xl shrink-0">🟡</div>
+            <div className="min-w-0">
+              <p className="text-base sm:text-2xl font-black text-amber-400 font-mono leading-none truncate">{modakCount.toLocaleString()}+</p>
+              <p className="text-[9px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1 truncate">Modaks Offered</p>
             </div>
           </div>
-          <div className="bg-stone-950/70 border border-amber-500/30 p-3 sm:p-4 rounded-2xl flex items-center gap-3 sm:gap-3.5 shadow-sm">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl flex-shrink-0">💰</div>
-            <div>
-              <p className="text-lg sm:text-2xl font-black text-amber-400 font-mono leading-none">₹{donations.reduce((sum, d) => sum + Number(d.amount || 0), 0).toLocaleString()}</p>
-              <p className="text-[10px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1">Devotee Daan</p>
+          <div className="bg-stone-950/70 border border-amber-500/30 p-2.5 sm:p-4 rounded-2xl flex items-center gap-2 sm:gap-3.5 shadow-sm min-w-0">
+            <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-base sm:text-xl shrink-0">💰</div>
+            <div className="min-w-0">
+              <p className="text-base sm:text-2xl font-black text-amber-400 font-mono leading-none truncate">₹{donations.reduce((sum, d) => sum + Number(d.amount || 0), 0).toLocaleString()}</p>
+              <p className="text-[9px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1 truncate">Devotee Daan</p>
             </div>
           </div>
-          <div className="bg-stone-950/70 border border-amber-500/30 p-3 sm:p-4 rounded-2xl flex items-center gap-3 sm:gap-3.5 shadow-sm">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl flex-shrink-0">👥</div>
-            <div>
-              <p className="text-lg sm:text-2xl font-black text-amber-400 font-mono leading-none">{teamMembers.length}</p>
-              <p className="text-[10px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1">Karyakarta Force</p>
+          <div className="bg-stone-950/70 border border-amber-500/30 p-2.5 sm:p-4 rounded-2xl flex items-center gap-2 sm:gap-3.5 shadow-sm min-w-0">
+            <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-base sm:text-xl shrink-0">👥</div>
+            <div className="min-w-0">
+              <p className="text-base sm:text-2xl font-black text-amber-400 font-mono leading-none truncate">{teamMembers.length}</p>
+              <p className="text-[9px] sm:text-[11px] text-stone-300 font-bold uppercase tracking-wider mt-1 truncate">Karyakarta Force</p>
             </div>
           </div>
         </div>
@@ -4890,6 +4902,8 @@ function App() {
           <p>Shivaputr Yuvak Mandal © 2026. Reg. No: E-18294/MUM/2012. All Rights Reserved.</p>
           <p className="text-amber-400 font-bold">॥ गणपती बाप्पा मोरया • पुढच्या वर्षी लवकर या ॥ 🙏</p>
         </div>
+      </footer>
+
       {/* --- MODAL 1: ADD MANDAL KHARCHA BILL (MEMBER-ONLY PERMISSION) --- */}
       {showAddExpenseModal && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
@@ -5311,8 +5325,6 @@ function App() {
           </div>
         </div>
       )}
-
-      </footer>
 
     </div>
   )
