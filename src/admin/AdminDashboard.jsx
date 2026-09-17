@@ -858,6 +858,13 @@ export default function AdminDashboard({
     <div className="min-h-screen bg-stone-100 flex font-sans text-stone-800 selection:bg-amber-200 selection:text-stone-900">
 
       {/* --- SIDEBAR FOR DESKTOP & MOBILE --- */}
+      {sidebarOpen && (
+        <div 
+          onClick={() => setSidebarOpen(false)} 
+          className="fixed inset-0 bg-black/70 backdrop-blur-xs z-40 lg:hidden transition-opacity duration-300"
+          aria-hidden="true"
+        />
+      )}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-stone-950 text-white transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col border-r border-stone-800 shadow-2xl`}>
         
         {/* Sidebar Header */}
@@ -1474,7 +1481,7 @@ export default function AdminDashboard({
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
+                  <table className="w-full min-w-[650px] text-left text-xs">
                     <thead>
                       <tr className="bg-stone-50 text-stone-600 uppercase font-black border-b border-stone-200">
                         <th className="p-3">Devotee Name</th>
@@ -1595,7 +1602,7 @@ export default function AdminDashboard({
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
+                  <table className="w-full min-w-[700px] text-left text-xs">
                     <thead>
                       <tr className="bg-stone-50 text-stone-600 uppercase font-black border-b border-stone-200">
                         <th className="p-3">Receipt No</th>
@@ -1855,7 +1862,7 @@ export default function AdminDashboard({
 
                 {/* The Spreadsheet Grid Table */}
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs border-collapse">
+                  <table className="w-full min-w-[950px] text-left text-xs border-collapse">
                     <thead>
                       <tr className="bg-stone-100 text-stone-700 uppercase font-black border-y border-stone-300 tracking-wider">
                         <th className="p-3 border-r border-stone-200 w-24">Voucher ID</th>

@@ -1920,11 +1920,11 @@ function App() {
 
       {/* --- AUTH MODAL (LOGIN & SIGNUP) --- */}
       {showAuthModal && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#181412] w-full max-w-md rounded-3xl shadow-2xl overflow-hidden flex flex-col p-6 relative border-2 border-amber-500/40 text-white">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto">
+          <div className="bg-[#181412] w-full max-w-md rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col p-4 sm:p-6 relative border-2 border-amber-500/40 text-white max-h-[94vh] my-auto overflow-y-auto">
             <button 
               onClick={() => setShowAuthModal(false)}
-              className="absolute top-4 right-4 bg-stone-800 hover:bg-red-600 hover:text-white text-stone-300 w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs transition"
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 bg-stone-800 hover:bg-red-600 hover:text-white text-stone-300 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition"
             >
               ✕
             </button>
@@ -2012,11 +2012,11 @@ function App() {
 
       {/* --- USER PROFILE & AVATAR EDIT MODAL --- */}
       {showUserProfileModal && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#181412] w-full max-w-md rounded-3xl shadow-2xl p-6 relative border-2 border-amber-500/40 text-white">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto">
+          <div className="bg-[#181412] w-full max-w-md rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 relative border-2 border-amber-500/40 text-white max-h-[94vh] my-auto overflow-y-auto">
             <button 
               onClick={() => setShowUserProfileModal(false)}
-              className="absolute top-4 right-4 bg-stone-800 hover:bg-stone-700 text-stone-300 w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs"
+              className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 bg-stone-800 hover:bg-stone-700 text-stone-300 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition"
             >
               ✕
             </button>
@@ -2899,24 +2899,24 @@ function App() {
 
       {/* --- VIP PASS DISPLAY MODAL (PRINTABLE) --- */}
       {showVipPassModal && activeVipPass && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#16120f] w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 printable-card text-white">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-[#16120f] w-full max-w-lg rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 printable-card text-white max-h-[94vh] my-auto">
             
             {/* Pass Header */}
-            <div className="bg-gradient-to-r from-red-950 via-amber-950 to-stone-950 text-white p-5 text-center relative border-b border-amber-500/30">
+            <div className="bg-gradient-to-r from-red-950 via-amber-950 to-stone-950 text-white p-3.5 sm:p-5 text-center relative border-b border-amber-500/30 shrink-0">
               <button 
                 onClick={() => setShowVipPassModal(false)}
-                className="absolute top-4 right-4 bg-stone-800 hover:bg-stone-700 text-stone-300 w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-stone-800 hover:bg-stone-700 text-stone-300 w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition"
               >
                 ✕
               </button>
-              <p className="text-[11px] font-black text-amber-300 uppercase tracking-widest">Shivaputr Yuvak Mandal Ganeshotsav 2026</p>
-              <h3 className="text-2xl font-black text-white mt-1">OFFICIAL VIP DARSHAN PASS</h3>
-              <p className="text-xs text-amber-200/90">Valid for Direct Entry • Non-Transferable</p>
+              <p className="text-[10px] sm:text-[11px] font-black text-amber-300 uppercase tracking-widest truncate">Shivaputr Yuvak Mandal Ganeshotsav 2026</p>
+              <h3 className="text-lg sm:text-2xl font-black text-white mt-0.5 sm:mt-1 tracking-tight">OFFICIAL VIP DARSHAN PASS</h3>
+              <p className="text-[10px] sm:text-xs text-amber-200/90">Valid for Direct Entry • Non-Transferable</p>
             </div>
 
             {/* Pass Body */}
-            <div className="p-6 bg-gradient-to-b from-[#1c1714] to-[#14100e] space-y-4 text-white">
+            <div className="p-4 sm:p-6 bg-gradient-to-b from-[#1c1714] to-[#14100e] space-y-3 sm:space-y-4 text-white overflow-y-auto">
               <div className="flex justify-between items-center border-b border-stone-800 pb-3">
                 <div>
                   <p className="text-[10px] text-stone-400 uppercase font-black">Pass Token Number</p>
@@ -3172,44 +3172,44 @@ function App() {
 
       {/* --- OFFICIAL MANDAL PAYMENT GATEWAY MODAL (GPAY QR, UPI INTENT & CARD/NETBANKING) --- */}
       {showUpiModal && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="bg-[#16120f] w-full max-w-md rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-white">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-[#16120f] w-full max-w-lg rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-white max-h-[94vh]">
             
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-red-950 via-stone-950 to-amber-950 text-white p-4 sm:p-5 relative text-center border-b border-amber-500/30">
+            <div className="bg-gradient-to-r from-red-950 via-stone-950 to-amber-950 text-white p-3.5 sm:p-5 relative text-center border-b border-amber-500/30 shrink-0">
               <button 
                 onClick={() => {
                   if (!isPaymentProcessing) setShowUpiModal(false)
                 }}
-                className="absolute top-3.5 right-3.5 bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white w-8 h-8 rounded-full flex items-center justify-center font-black text-xs transition"
+                className="absolute top-3 right-3 sm:top-3.5 sm:right-3.5 bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-black text-xs transition"
                 title="Close"
               >
                 ✕
               </button>
 
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <span className="text-xl">🕉️</span>
-                <h3 className="text-base sm:text-lg font-black tracking-tight text-amber-300 uppercase">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-0.5">
+                <span className="text-lg sm:text-xl">🕉️</span>
+                <h3 className="text-sm sm:text-base md:text-lg font-black tracking-tight text-amber-300 uppercase truncate">
                   Shivaputr Utsav Payment Gateway
                 </h3>
               </div>
 
-              <p className="text-[11px] text-amber-200 font-medium">
+              <p className="text-[10px] sm:text-[11px] text-amber-200 font-medium">
                 Official Trust Account • Reg No: E-18294/MUM/2012
               </p>
 
               {/* Order Summary Pill */}
-              <div className="mt-3 bg-stone-950/80 border border-amber-500/40 rounded-2xl p-2.5 flex items-center justify-between text-left">
-                <div>
-                  <p className="text-[10px] text-stone-400 font-bold">Devotee & Seva:</p>
-                  <p className="text-xs font-black text-white truncate max-w-[200px]">
+              <div className="mt-2.5 bg-stone-950/80 border border-amber-500/40 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 flex items-center justify-between text-left gap-2">
+                <div className="min-w-0 flex-1">
+                  <p className="text-[9px] sm:text-[10px] text-stone-400 font-bold uppercase tracking-wider">Devotee & Seva:</p>
+                  <p className="text-xs sm:text-sm font-black text-white truncate">
                     {donorName.trim() || loggedInUser || 'Devotee (Bhakti Seva)'}
                   </p>
-                  <p className="text-[10px] text-amber-400 truncate max-w-[200px]">{donationCategory}</p>
+                  <p className="text-[10px] text-amber-400 truncate">{donationCategory}</p>
                 </div>
-                <div className="text-right pl-2 border-l border-stone-800">
-                  <p className="text-[10px] text-stone-400 font-bold uppercase">Total Daan:</p>
-                  <p className="text-xl font-black text-amber-300 font-mono">
+                <div className="text-right pl-2 sm:pl-3 border-l border-stone-800 shrink-0">
+                  <p className="text-[9px] sm:text-[10px] text-stone-400 font-bold uppercase">Total Daan:</p>
+                  <p className="text-lg sm:text-xl font-black text-amber-300 font-mono">
                     ₹{Number(donationAmount || 101).toLocaleString()}
                   </p>
                 </div>
@@ -3217,62 +3217,62 @@ function App() {
             </div>
 
             {/* Gateway Mode Switcher Tabs */}
-            <div className="grid grid-cols-3 bg-[#110e0c] p-1.5 border-b border-stone-800 text-xs font-black">
+            <div className="grid grid-cols-3 bg-[#110e0c] p-1 border-b border-stone-800 text-[11px] sm:text-xs font-black gap-1 shrink-0">
               <button
                 type="button"
                 onClick={() => setPaymentGatewayTab('gpay_qr')}
-                className={`py-2 rounded-xl transition flex items-center justify-center gap-1 ${paymentGatewayTab === 'gpay_qr' ? 'bg-amber-500 text-stone-950 shadow-sm border border-amber-400' : 'text-stone-400 hover:text-white'}`}
+                className={`py-2 sm:py-2.5 px-1 rounded-xl transition flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 ${paymentGatewayTab === 'gpay_qr' ? 'bg-amber-500 text-stone-950 shadow-sm border border-amber-400' : 'text-stone-400 hover:text-white'}`}
               >
                 <span>📱</span>
-                <span>GPay QR</span>
+                <span className="truncate">GPay QR</span>
               </button>
               <button
                 type="button"
                 onClick={() => setPaymentGatewayTab('upi_intent')}
-                className={`py-2 rounded-xl transition flex items-center justify-center gap-1 ${paymentGatewayTab === 'upi_intent' ? 'bg-amber-500 text-stone-950 shadow-sm border border-amber-400' : 'text-stone-400 hover:text-white'}`}
+                className={`py-2 sm:py-2.5 px-1 rounded-xl transition flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 ${paymentGatewayTab === 'upi_intent' ? 'bg-amber-500 text-stone-950 shadow-sm border border-amber-400' : 'text-stone-400 hover:text-white'}`}
               >
                 <span>⚡</span>
-                <span>UPI Apps</span>
+                <span className="truncate">UPI Apps</span>
               </button>
               <button
                 type="button"
                 onClick={() => setPaymentGatewayTab('card_netbanking')}
-                className={`py-2 rounded-xl transition flex items-center justify-center gap-1 ${paymentGatewayTab === 'card_netbanking' ? 'bg-amber-500 text-stone-950 shadow-sm border border-amber-400' : 'text-stone-400 hover:text-white'}`}
+                className={`py-2 sm:py-2.5 px-1 rounded-xl transition flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1.5 ${paymentGatewayTab === 'card_netbanking' ? 'bg-amber-500 text-stone-950 shadow-sm border border-amber-400' : 'text-stone-400 hover:text-white'}`}
               >
                 <span>💳</span>
-                <span>Card/NetBank</span>
+                <span className="truncate">Cards/Net</span>
               </button>
             </div>
 
             {/* Modal Body: Active Tab View */}
-            <div className="p-4 sm:p-5 max-h-[72vh] overflow-y-auto space-y-4 bg-[#130f0d]">
+            <div className="p-3 sm:p-5 max-h-[72vh] overflow-y-auto space-y-3.5 sm:space-y-4 bg-[#130f0d]">
               
               {/* TAB 1: GOOGLE PAY SCANNER QR */}
               {paymentGatewayTab === 'gpay_qr' && (
-                <div className="space-y-3.5 text-center">
+                <div className="space-y-3 sm:space-y-3.5 text-center">
                   
                   {/* Real Google Pay Scanner Card */}
-                  <div className="bg-[#1a1613] border-2 border-amber-500/30 rounded-3xl p-3.5 shadow-sm max-w-xs mx-auto relative text-white">
+                  <div className="bg-[#1a1613] border-2 border-amber-500/30 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 shadow-sm max-w-xs mx-auto relative text-white">
                     
                     {/* Verified Scanner Badge */}
-                    <div className="inline-flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-500/40 px-3 py-1 rounded-full text-[10px] font-black text-emerald-300 mb-2 shadow-xs">
+                    <div className="inline-flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-500/40 px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-black text-emerald-300 mb-2 shadow-xs">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                      <span>{customQrCode ? '✓ Verified Admin QR Code (Live)' : '✓ Official Google Pay Scanner (Verified)'}</span>
+                      <span className="truncate">{customQrCode ? '✓ Verified Admin QR (Live)' : '✓ Official GPay Scanner (Verified)'}</span>
                     </div>
 
                     {/* QR Mode Switcher: Real vs Dynamic */}
-                    <div className="flex bg-stone-900 p-0.5 rounded-xl text-[10px] font-black mb-2.5 max-w-[270px] mx-auto border border-stone-800">
+                    <div className="flex bg-stone-900 p-0.5 rounded-xl text-[10px] font-black mb-2.5 w-full max-w-xs mx-auto border border-stone-800 gap-0.5">
                       <button
                         type="button"
                         onClick={() => setQrViewMode('standee')}
-                        className={`flex-1 py-1 rounded-lg transition ${qrViewMode === 'standee' ? 'bg-amber-500 text-stone-950 shadow-xs font-bold' : 'text-stone-400 hover:text-white'}`}
+                        className={`flex-1 py-1 px-1.5 rounded-lg transition truncate ${qrViewMode === 'standee' ? 'bg-amber-500 text-stone-950 shadow-xs font-bold' : 'text-stone-400 hover:text-white'}`}
                       >
-                        {customQrCode ? '🖼️ Admin Real QR' : '🟢 Official Real QR'}
+                        {customQrCode ? '🖼️ Real QR' : '🟢 Standee QR'}
                       </button>
                       <button
                         type="button"
                         onClick={() => setQrViewMode('dynamic')}
-                        className={`flex-1 py-1 rounded-lg transition ${qrViewMode === 'dynamic' ? 'bg-amber-500 text-stone-950 shadow-xs font-bold' : 'text-stone-400 hover:text-white'}`}
+                        className={`flex-1 py-1 px-1.5 rounded-lg transition truncate ${qrViewMode === 'dynamic' ? 'bg-amber-500 text-stone-950 shadow-xs font-bold' : 'text-stone-400 hover:text-white'}`}
                       >
                         ⚡ Auto-Amount (₹{Number(donationAmount || 1).toLocaleString()})
                       </button>
@@ -3281,7 +3281,7 @@ function App() {
                     {/* QR Image Box - Clickable to open large scanner */}
                     <div 
                       onClick={() => handleTapToPay('Google Pay')}
-                      className="aspect-square w-48 sm:w-52 mx-auto rounded-2xl overflow-hidden bg-white p-2 border-2 border-amber-400 shadow-md flex items-center justify-center relative group cursor-pointer hover:border-amber-300 transition"
+                      className="aspect-square w-40 sm:w-52 mx-auto rounded-2xl overflow-hidden bg-white p-2 border-2 border-amber-400 shadow-md flex items-center justify-center relative group cursor-pointer hover:border-amber-300 transition"
                       title="Click to Open Full Scanner QR"
                     >
                       <img 
@@ -3291,13 +3291,13 @@ function App() {
                       />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-black rounded-2xl gap-1">
                         <span>🔍</span>
-                        <span>Click to Enlarge</span>
+                        <span>Enlarge</span>
                       </div>
                     </div>
 
                     <div className="mt-2 text-center">
                       <p className="text-xs font-black text-white leading-tight">{activePayeeName}</p>
-                      <p className="text-[10px] text-amber-300 font-bold mt-0.5">
+                      <p className="text-[10px] text-amber-300 font-bold mt-0.5 leading-snug">
                         {qrViewMode === 'dynamic' 
                           ? `✓ GPay scan karte hi ₹${Number(donationAmount || 1).toLocaleString()} automatic fill hoga` 
                           : (customQrCode ? '✓ Verified Admin QR Code (Scan using any UPI App)' : 'Scan using GPay, PhonePe, Paytm or BHIM')}
@@ -3306,15 +3306,15 @@ function App() {
                   </div>
 
                   {/* UPI ID & 1-Click Copy */}
-                  <div className="bg-stone-900/90 p-2.5 rounded-2xl border border-stone-800 flex items-center justify-between text-left">
-                    <div>
+                  <div className="bg-stone-900/90 p-2 sm:p-2.5 rounded-xl sm:rounded-2xl border border-stone-800 flex items-center justify-between text-left gap-2">
+                    <div className="min-w-0 flex-1">
                       <p className="text-[9px] font-bold text-stone-400 uppercase tracking-wider">Official UPI ID</p>
-                      <p className="text-xs font-mono font-black text-amber-300 select-all">{activeUpiId}</p>
+                      <p className="text-xs font-mono font-black text-amber-300 select-all truncate">{activeUpiId}</p>
                     </div>
                     <button 
                       type="button"
                       onClick={copyUpiId}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-black transition shadow-xs flex items-center gap-1 ${upiCopied ? 'bg-green-600 text-white' : 'bg-amber-500 hover:bg-amber-400 text-stone-950'}`}
+                      className={`px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-black transition shadow-xs flex items-center gap-1 shrink-0 ${upiCopied ? 'bg-green-600 text-white' : 'bg-amber-500 hover:bg-amber-400 text-stone-950'}`}
                     >
                       <span>{upiCopied ? '✓' : '📋'}</span>
                       <span>{upiCopied ? 'Copied' : 'Copy UPI'}</span>
@@ -3325,16 +3325,16 @@ function App() {
                   <button 
                     type="button"
                     onClick={() => handleTapToPay('Google Pay')}
-                    className="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-stone-950 font-black py-3 px-4 rounded-2xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg active:scale-95"
+                    className="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-stone-950 font-black py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg active:scale-95"
                   >
                     <span>📱</span>
-                    <span>Tap to Pay / Open QR Scanner (₹{Number(donationAmount || 101).toLocaleString()})</span>
+                    <span className="truncate">Tap to Pay / Open QR Scanner (₹{Number(donationAmount || 101).toLocaleString()})</span>
                     <span>⚡</span>
                   </button>
 
                   {/* STEP 2: VERIFICATION & ENTRY RECORDING FORM */}
                   <div className="pt-3 border-t border-stone-800 space-y-3 text-left">
-                    <div className="bg-amber-950/50 border border-amber-500/40 rounded-2xl p-3 text-amber-200">
+                    <div className="bg-amber-950/50 border border-amber-500/40 rounded-xl sm:rounded-2xl p-2.5 sm:p-3 text-amber-200">
                       <div className="flex items-center gap-1.5 font-black text-xs uppercase text-amber-300">
                         <span>📝</span>
                         <span>Step 2: Payment Verification & Entry Details</span>
@@ -3344,7 +3344,7 @@ function App() {
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                       <div>
                         <label className="text-[10px] font-bold text-stone-300 block uppercase mb-1">
                           Devotee Full Name *
@@ -3354,7 +3354,7 @@ function App() {
                           placeholder="Devotee Full Name" 
                           value={donorName}
                           onChange={(e) => { setDonorName(e.target.value); setUtrValidationError(''); }}
-                          className="w-full px-3 py-2 border border-stone-700 rounded-xl text-xs bg-stone-950 font-bold text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                          className="w-full px-3 py-2 sm:py-2.5 border border-stone-700 rounded-xl text-xs bg-stone-950 font-bold text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
                           required
                         />
                       </div>
@@ -3369,13 +3369,13 @@ function App() {
                           value={donorPhone}
                           onChange={(e) => { setDonorPhone(e.target.value.replace(/\D/g, '').slice(0, 10)); setUtrValidationError(''); }}
                           maxLength={10}
-                          className="w-full px-3 py-2 border border-stone-700 rounded-xl text-xs bg-stone-950 font-bold text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                          className="w-full px-3 py-2 sm:py-2.5 border border-stone-700 rounded-xl text-xs bg-stone-950 font-bold text-white placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500"
                           required
                         />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                       <div>
                         <label className="text-[10px] font-bold text-stone-300 block uppercase mb-1">
                           Donation Amount (₹) *
@@ -3385,7 +3385,7 @@ function App() {
                           placeholder="Amount in ₹" 
                           value={donationAmount}
                           onChange={(e) => { setDonationAmount(e.target.value); setUtrValidationError(''); }}
-                          className="w-full px-3 py-2 border border-stone-700 rounded-xl text-xs bg-stone-950 font-black text-amber-300 font-mono focus:outline-none focus:ring-2 focus:ring-amber-500"
+                          className="w-full px-3 py-2 sm:py-2.5 border border-stone-700 rounded-xl text-xs bg-stone-950 font-black text-amber-300 font-mono focus:outline-none focus:ring-2 focus:ring-amber-500"
                           required
                         />
                       </div>
@@ -3401,7 +3401,7 @@ function App() {
                           value={donorUtr}
                           onChange={(e) => { setDonorUtr(e.target.value.trim()); setUtrValidationError(''); }}
                           maxLength={18}
-                          className="w-full px-3 py-2 border-2 border-amber-500/60 focus:border-amber-400 rounded-xl text-xs font-mono font-bold bg-stone-950 text-amber-300 focus:outline-none"
+                          className="w-full px-3 py-2 sm:py-2.5 border-2 border-amber-500/60 focus:border-amber-400 rounded-xl text-xs font-mono font-bold bg-stone-950 text-amber-300 focus:outline-none"
                           required
                         />
                       </div>
@@ -3413,8 +3413,8 @@ function App() {
 
                     {/* Prominent Validation Error Alert Banner */}
                     {utrValidationError && (
-                      <div className="bg-red-950/80 border-2 border-red-500 rounded-xl p-3 text-red-200 text-xs font-bold flex items-start gap-2 animate-shake shadow-md">
-                        <span className="text-lg leading-none shrink-0 mt-0.5">⚠️</span>
+                      <div className="bg-red-950/80 border-2 border-red-500 rounded-xl p-2.5 sm:p-3 text-red-200 text-xs font-bold flex items-start gap-2 animate-shake shadow-md">
+                        <span className="text-base sm:text-lg leading-none shrink-0 mt-0.5">⚠️</span>
                         <div>
                           <p className="font-black text-white">Payment Verification Failed:</p>
                           <p className="mt-0.5 text-red-200 leading-snug">{utrValidationError}</p>
@@ -3427,17 +3427,17 @@ function App() {
                       type="button"
                       onClick={() => handleVerifyAndRecordPayment('Google Pay (Scanner QR)')}
                       disabled={isPaymentProcessing}
-                      className="w-full bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-600 text-white font-black py-4 px-4 rounded-2xl text-sm shadow-xl shadow-emerald-700/20 transition flex items-center justify-center gap-2 active:scale-95 disabled:opacity-60"
+                      className="w-full bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 hover:from-emerald-500 hover:to-green-600 text-white font-black py-3 sm:py-4 px-3 sm:px-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm shadow-xl shadow-emerald-700/20 transition flex items-center justify-center gap-2 active:scale-95 disabled:opacity-60"
                     >
                       {isPaymentProcessing ? (
                         <>
-                          <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                          <span>🔍 Verifying 12-digit UTR with Mandal Bank Account...</span>
+                          <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                          <span className="text-xs sm:text-sm">Verifying with Mandal Bank Account...</span>
                         </>
                       ) : (
                         <>
                           <span>🔒</span>
-                          <span>Verify 12-Digit UTR & Generate Official Receipt</span>
+                          <span className="text-xs sm:text-sm">Verify 12-Digit UTR & Generate Official Receipt</span>
                         </>
                       )}
                     </button>
@@ -3448,14 +3448,14 @@ function App() {
 
               {/* TAB 2: DIRECT UPI APPS */}
               {paymentGatewayTab === 'upi_intent' && (
-                <div className="space-y-4">
+                <div className="space-y-3.5 sm:space-y-4">
                   <div className="text-center">
                     <p className="text-xs text-stone-300 font-medium">
                       Apne kisi bhi pasandeeda UPI app par click karein aur instant Scanner open karein:
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3">
                     {[
                       { name: 'Google Pay', color: 'from-blue-600 to-indigo-700', icon: '🟢', sub: 'Tap to Open GPay Scanner' },
                       { name: 'PhonePe', color: 'from-purple-600 to-indigo-800', icon: '🟣', sub: 'Tap to Open PhonePe Scanner' },
@@ -3466,25 +3466,25 @@ function App() {
                         key={app.name}
                         type="button"
                         onClick={() => handleTapToPay(app.name)}
-                        className={`bg-gradient-to-r ${app.color} text-white p-3 rounded-2xl shadow hover:shadow-md transition flex items-center gap-2.5 hover:scale-[1.02] active:scale-95 text-left`}
+                        className={`bg-gradient-to-r ${app.color} text-white p-2.5 sm:p-3 rounded-xl sm:rounded-2xl shadow hover:shadow-md transition flex items-center gap-2.5 hover:scale-[1.02] active:scale-95 text-left`}
                       >
-                        <span className="text-2xl">{app.icon}</span>
-                        <div>
-                          <p className="text-xs font-black leading-tight">{app.name}</p>
-                          <p className="text-[10px] text-white/90 mt-0.5">{app.sub}</p>
+                        <span className="text-xl sm:text-2xl shrink-0">{app.icon}</span>
+                        <div className="min-w-0">
+                          <p className="text-xs font-black leading-tight truncate">{app.name}</p>
+                          <p className="text-[10px] text-white/90 mt-0.5 truncate">{app.sub}</p>
                         </div>
                       </button>
                     ))}
                   </div>
 
-                  <div className="bg-[#1a1613] border border-amber-500/30 p-3 rounded-2xl text-xs text-stone-300 space-y-1">
+                  <div className="bg-[#1a1613] border border-amber-500/30 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-xs text-stone-300 space-y-1">
                     <p className="font-bold text-amber-300 flex items-center gap-1">
                       <span>ℹ️</span> <span>Laptop & Mobile Friendly:</span>
                     </p>
-                    <p className="text-[11px] text-stone-400">
+                    <p className="text-[10px] sm:text-[11px] text-stone-400">
                       • <strong>Laptop Par</strong>: Upar kisi bhi UPI app par click karein → Scanner khul jayega jise aap apne phone se scan kar sakte hain.
                     </p>
-                    <p className="text-[11px] text-stone-400">
+                    <p className="text-[10px] sm:text-[11px] text-stone-400">
                       • <strong>Mobile Par</strong>: Direct app launch hogi jisme PIN daal kar aap turant payment kar sakte hain.
                     </p>
                   </div>
@@ -3915,23 +3915,23 @@ function App() {
 
       {/* --- BAPPA BLESSINGS WALL: REAL PAYMENT GATEWAY & SCANNER MODAL --- */}
       {showBlessingPaymentModal && pendingBlessing && (
-        <div className="fixed inset-0 z-[82] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-fade-in">
-          <div className="bg-[#16120f] w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-center max-h-[92vh] text-white">
+        <div className="fixed inset-0 z-[82] bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto animate-fade-in">
+          <div className="bg-[#16120f] w-full max-w-lg rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-center max-h-[94vh] text-white">
             
             {/* Saffron Ganapati Header */}
-            <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white p-5 relative flex items-center justify-between shadow-md">
-              <div className="text-left">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl">🪔</span>
-                  <h3 className="text-lg font-black tracking-tight">Bappa Wish Sankalp Payment</h3>
+            <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white p-3.5 sm:p-5 relative flex items-center justify-between shadow-md shrink-0">
+              <div className="text-left min-w-0 flex-1 pr-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-lg sm:text-xl shrink-0">🪔</span>
+                  <h3 className="text-sm sm:text-base md:text-lg font-black tracking-tight truncate">Bappa Wish Sankalp Payment</h3>
                 </div>
-                <p className="text-xs text-amber-100 font-medium mt-0.5">
+                <p className="text-[10px] sm:text-xs text-amber-100 font-medium mt-0.5 truncate">
                   Real UPI Payment Gateway • Kunal Satote (Mandal Account)
                 </p>
               </div>
               <button 
                 onClick={() => { setShowBlessingPaymentModal(false); setPendingBlessing(null); setBlessingUtrError(''); }}
-                className="bg-black/20 hover:bg-black/40 text-white w-8 h-8 rounded-full flex items-center justify-center font-black text-xs transition"
+                className="bg-black/20 hover:bg-black/40 text-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-black text-xs transition shrink-0"
                 title="Close"
               >
                 ✕
@@ -3939,41 +3939,41 @@ function App() {
             </div>
 
             {/* Modal Body */}
-            <div className="p-5 overflow-y-auto space-y-4 text-left bg-[#130f0d]">
+            <div className="p-3 sm:p-5 overflow-y-auto space-y-3 sm:space-y-4 text-left bg-[#130f0d]">
               
               {/* Wish & Devotee Summary Card */}
-              <div className="bg-[#1f1915] border-2 border-amber-500/30 rounded-2xl p-3.5 space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-[11px] font-extrabold text-amber-300 flex items-center gap-1.5">
-                    <span>🙏 Devotee:</span> <strong className="text-white">{pendingBlessing.name}</strong>
+              <div className="bg-[#1f1915] border-2 border-amber-500/30 rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 space-y-2">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="text-[11px] sm:text-xs font-extrabold text-amber-300 flex items-center gap-1.5 truncate">
+                    <span>🙏 Devotee:</span> <strong className="text-white truncate">{pendingBlessing.name}</strong>
                   </span>
-                  <span className="text-xs bg-emerald-600 text-white font-black px-2.5 py-1 rounded-lg shadow-xs font-mono">
+                  <span className="text-xs bg-emerald-600 text-white font-black px-2.5 py-1 rounded-lg shadow-xs font-mono shrink-0">
                     ₹{pendingBlessing.amount} Daan
                   </span>
                 </div>
-                <p className="text-xs italic text-stone-300 font-medium bg-[#181310] p-2 rounded-xl border border-amber-500/20">
+                <p className="text-xs italic text-stone-300 font-medium bg-[#181310] p-2 rounded-xl border border-amber-500/20 leading-relaxed">
                   "{pendingBlessing.wish}"
                 </p>
-                <div className="flex justify-between items-center text-[10px] text-stone-400 font-bold">
+                <div className="flex justify-between items-center text-[10px] text-stone-400 font-bold flex-wrap gap-1">
                   <span>📱 {pendingBlessing.phone}</span>
                   <span className="text-amber-400">100% Real Payment Required</span>
                 </div>
               </div>
 
               {/* STEP 1: SCAN & PAY VIA UPI */}
-              <div className="bg-[#1a1512] border border-amber-500/30 rounded-2xl p-4 space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-black text-white uppercase flex items-center gap-1">
+              <div className="bg-[#1a1512] border border-amber-500/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 space-y-2.5 sm:space-y-3">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="text-xs font-black text-white uppercase flex items-center gap-1 truncate">
                     <span>📲</span> Step 1: Scan QR or Pay with UPI App
                   </span>
-                  <span className="text-[10px] bg-amber-950 text-amber-300 border border-amber-500/30 font-bold px-2 py-0.5 rounded-full">
-                    Auto-Filled ₹{pendingBlessing.amount}
+                  <span className="text-[10px] bg-amber-950 text-amber-300 border border-amber-500/30 font-bold px-2 py-0.5 rounded-full shrink-0">
+                    ₹{pendingBlessing.amount}
                   </span>
                 </div>
 
                 {/* QR Code Card */}
-                <div className="bg-[#14100d] p-3.5 rounded-2xl border-2 border-dashed border-amber-500/40 flex flex-col items-center justify-center shadow-inner">
-                  <div className="w-48 h-48 sm:w-52 sm:h-52 bg-white rounded-xl p-2 shadow-md border border-amber-500/40 flex items-center justify-center">
+                <div className="bg-[#14100d] p-3 rounded-2xl border-2 border-dashed border-amber-500/40 flex flex-col items-center justify-center shadow-inner">
+                  <div className="w-40 h-40 sm:w-52 sm:h-52 bg-white rounded-xl p-2 shadow-md border border-amber-500/40 flex items-center justify-center">
                     <img 
                       src={blessingQrMode === 'dynamic' ? (blessingDynamicQr || activeStandeeQr) : activeStandeeQr} 
                       alt="Bappa Blessings UPI QR" 
@@ -3982,7 +3982,7 @@ function App() {
                   </div>
                   <div className="mt-2 text-center">
                     <p className="text-xs font-black text-amber-300">{activePayeeName}</p>
-                    <p className="text-[11px] text-emerald-400 font-bold mt-0.5">
+                    <p className="text-[10px] sm:text-[11px] text-emerald-400 font-bold mt-0.5">
                       ✓ Scan karte hi ₹{pendingBlessing.amount} exact amount fill hoga
                     </p>
                   </div>
@@ -3993,44 +3993,44 @@ function App() {
                   <p className="text-[10px] font-bold text-stone-400 uppercase text-center">
                     — Mobile Users direct App se pay karein —
                   </p>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                     <button 
                       type="button" 
                       onClick={() => handleBlessingMobilePay('Google Pay')}
-                      className="bg-stone-900 border border-stone-700 hover:border-blue-400 p-2 rounded-xl flex flex-col items-center justify-center gap-1 transition active:scale-95 shadow-xs"
+                      className="bg-stone-900 border border-stone-700 hover:border-blue-400 p-2 rounded-xl flex flex-col items-center justify-center gap-0.5 sm:gap-1 transition active:scale-95 shadow-xs"
                     >
                       <span className="text-base">🟢</span>
-                      <span className="text-[11px] font-black text-stone-200">Google Pay</span>
+                      <span className="text-[10px] sm:text-[11px] font-black text-stone-200 truncate w-full text-center">GPay</span>
                     </button>
                     <button 
                       type="button" 
                       onClick={() => handleBlessingMobilePay('PhonePe')}
-                      className="bg-stone-900 border border-stone-700 hover:border-purple-400 p-2 rounded-xl flex flex-col items-center justify-center gap-1 transition active:scale-95 shadow-xs"
+                      className="bg-stone-900 border border-stone-700 hover:border-purple-400 p-2 rounded-xl flex flex-col items-center justify-center gap-0.5 sm:gap-1 transition active:scale-95 shadow-xs"
                     >
                       <span className="text-base">🟣</span>
-                      <span className="text-[11px] font-black text-stone-200">PhonePe</span>
+                      <span className="text-[10px] sm:text-[11px] font-black text-stone-200 truncate w-full text-center">PhonePe</span>
                     </button>
                     <button 
                       type="button" 
                       onClick={() => handleBlessingMobilePay('Paytm')}
-                      className="bg-stone-900 border border-stone-700 hover:border-sky-400 p-2 rounded-xl flex flex-col items-center justify-center gap-1 transition active:scale-95 shadow-xs"
+                      className="bg-stone-900 border border-stone-700 hover:border-sky-400 p-2 rounded-xl flex flex-col items-center justify-center gap-0.5 sm:gap-1 transition active:scale-95 shadow-xs"
                     >
                       <span className="text-base">🔵</span>
-                      <span className="text-[11px] font-black text-stone-200">Paytm / BHIM</span>
+                      <span className="text-[10px] sm:text-[11px] font-black text-stone-200 truncate w-full text-center">Paytm</span>
                     </button>
                   </div>
                 </div>
 
                 {/* UPI ID & Copy */}
-                <div className="bg-stone-900 p-2.5 rounded-xl border border-stone-700 flex items-center justify-between">
-                  <div>
+                <div className="bg-stone-900 p-2 sm:p-2.5 rounded-xl border border-stone-700 flex items-center justify-between gap-2">
+                  <div className="min-w-0 flex-1">
                     <p className="text-[9px] font-bold text-stone-400 uppercase">Mandal UPI ID</p>
-                    <p className="text-xs font-mono font-black text-amber-300 select-all">{activeUpiId}</p>
+                    <p className="text-xs font-mono font-black text-amber-300 select-all truncate">{activeUpiId}</p>
                   </div>
                   <button 
                     type="button" 
                     onClick={copyUpiId}
-                    className={`px-3 py-1 rounded-lg text-xs font-black transition ${upiCopied ? 'bg-green-600 text-white' : 'bg-amber-500 hover:bg-amber-400 text-stone-950'}`}
+                    className={`px-2.5 sm:px-3 py-1 rounded-lg text-xs font-black transition shrink-0 ${upiCopied ? 'bg-green-600 text-white' : 'bg-amber-500 hover:bg-amber-400 text-stone-950'}`}
                   >
                     {upiCopied ? '✓ Copied' : '📋 Copy ID'}
                   </button>
@@ -4230,27 +4230,27 @@ function App() {
 
       {/* --- OFFICIAL E-RECEIPT MODAL (PRINTABLE) --- */}
       {showReceiptModal && activeReceipt && (
-        <div className="fixed inset-0 z-[80] bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-[#16120f] w-full max-w-md rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 text-white printable-card">
+        <div className="fixed inset-0 z-[80] bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-[#16120f] w-full max-w-md rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 text-white printable-card max-h-[94vh] my-auto">
             
-            <div className="bg-stone-950 text-white p-5 text-center relative border-b-2 border-amber-400">
+            <div className="bg-stone-950 text-white p-4 sm:p-5 text-center relative border-b-2 border-amber-400 shrink-0">
               <button 
                 onClick={() => setShowReceiptModal(false)}
-                className="absolute top-4 right-4 bg-stone-800 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs"
+                className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 bg-stone-800 hover:bg-stone-700 text-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition"
               >
                 ✕
               </button>
-              <div className="w-10 h-10 rounded-full bg-amber-500 text-stone-950 flex items-center justify-center font-black mx-auto mb-1">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-amber-500 text-stone-950 flex items-center justify-center font-black mx-auto mb-1 text-base sm:text-lg">
                 🕉️
               </div>
-              <h3 className="text-lg font-black text-amber-300">SHIVAPUTR YUVAK MANDAL</h3>
+              <h3 className="text-base sm:text-lg font-black text-amber-300 tracking-tight">SHIVAPUTR YUVAK MANDAL</h3>
               <p className="text-[10px] text-stone-300">Trust Reg: E-18294/MUM/2012 • Sarvajanik Utsav</p>
-              <span className="inline-block mt-2 bg-amber-400 text-stone-950 text-[10px] font-black px-3 py-0.5 rounded-full uppercase">
+              <span className="inline-block mt-1.5 sm:mt-2 bg-amber-400 text-stone-950 text-[10px] font-black px-3 py-0.5 rounded-full uppercase">
                 Official Daan Pavati / E-Receipt
               </span>
             </div>
 
-            <div className="p-6 space-y-4 bg-[#130f0d] text-xs">
+            <div className="p-4 sm:p-6 space-y-3.5 sm:space-y-4 bg-[#130f0d] text-xs overflow-y-auto">
               <div className="flex justify-between border-b border-stone-800 pb-2">
                 <div>
                   <span className="text-stone-400 block text-[10px]">Receipt No:</span>
@@ -4892,30 +4892,30 @@ function App() {
         </div>
       {/* --- MODAL 1: ADD MANDAL KHARCHA BILL (MEMBER-ONLY PERMISSION) --- */}
       {showAddExpenseModal && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="bg-[#16120f] w-full max-w-md rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-white">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-[#16120f] w-full max-w-lg rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-white max-h-[94vh]">
             
             {/* Header */}
-            <div className="bg-gradient-to-r from-stone-950 via-amber-950 to-stone-900 text-white p-4 sm:p-5 relative text-center border-b border-amber-500/30">
+            <div className="bg-gradient-to-r from-stone-950 via-amber-950 to-stone-900 text-white p-3.5 sm:p-5 relative text-center border-b border-amber-500/30 shrink-0">
               <button 
                 onClick={() => setShowAddExpenseModal(false)}
-                className="absolute top-3.5 right-3.5 bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white w-8 h-8 rounded-full flex items-center justify-center font-black text-xs transition"
+                className="absolute top-3 right-3 sm:top-3.5 sm:right-3.5 bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-black text-xs transition"
               >
                 ✕
               </button>
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <span className="text-xl">💼</span>
-                <h3 className="text-base sm:text-lg font-black tracking-tight text-amber-300 uppercase">
+              <div className="flex items-center justify-center gap-2 mb-0.5">
+                <span className="text-lg sm:text-xl">💼</span>
+                <h3 className="text-sm sm:text-base md:text-lg font-black tracking-tight text-amber-300 uppercase truncate">
                   Mandal Kharcha Entry
                 </h3>
               </div>
-              <p className="text-[11px] text-amber-200/90 font-medium">
+              <p className="text-[10px] sm:text-[11px] text-amber-200/90 font-medium">
                 Shivaputr Yuvak Mandal • Karyakarta Expense Portal
               </p>
             </div>
 
             {/* Modal Body */}
-            <div className="p-4 sm:p-5 space-y-3.5 text-left max-h-[75vh] overflow-y-auto bg-[#130f0d]">
+            <div className="p-3 sm:p-5 space-y-3.5 text-left max-h-[75vh] overflow-y-auto bg-[#130f0d]">
               
               {/* Permission Check 1: User Not Logged In */}
               {!loggedInUser ? (
@@ -5190,25 +5190,25 @@ function App() {
 
       {/* --- MODAL 2: TRACK MEMBER EXPENSES LIST --- */}
       {showExpenseListModal && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="bg-[#16120f] w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-white">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-[#16120f] w-full max-w-2xl rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-2 border-amber-500/50 my-auto text-white max-h-[94vh]">
             
-            <div className="bg-gradient-to-r from-stone-950 to-stone-900 text-white p-4 sm:p-5 flex justify-between items-center border-b border-amber-500/30">
-              <div>
-                <h3 className="text-base sm:text-lg font-black text-amber-300 flex items-center gap-2">
+            <div className="bg-gradient-to-r from-stone-950 to-stone-900 text-white p-3.5 sm:p-5 flex justify-between items-center border-b border-amber-500/30 shrink-0">
+              <div className="min-w-0 flex-1 pr-2">
+                <h3 className="text-sm sm:text-base md:text-lg font-black text-amber-300 flex items-center gap-1.5 sm:gap-2 truncate">
                   <span>📋</span> Mandal Kharcha Status Tracker ({expenses.length})
                 </h3>
-                <p className="text-[11px] text-stone-400">Member bills, UPI UTR & Live Admin Approval Status</p>
+                <p className="text-[10px] sm:text-[11px] text-stone-400 truncate">Member bills, UPI UTR & Live Admin Approval Status</p>
               </div>
               <button 
                 onClick={() => setShowExpenseListModal(false)}
-                className="bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white w-8 h-8 rounded-full flex items-center justify-center font-black text-xs transition"
+                className="bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-black text-xs transition shrink-0"
               >
                 ✕
               </button>
             </div>
 
-            <div className="p-4 sm:p-6 space-y-3 max-h-[70vh] overflow-y-auto bg-[#130f0d]">
+            <div className="p-3 sm:p-6 space-y-3 max-h-[70vh] overflow-y-auto bg-[#130f0d]">
               {expenses.length === 0 ? (
                 <div className="text-center py-10 text-stone-500">
                   <p className="text-3xl mb-2">🧾</p>
